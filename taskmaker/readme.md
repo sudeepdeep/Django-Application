@@ -50,7 +50,7 @@ we can change the values and go to the above mentioned links to see what tasks a
 
 Requirements:
 
-users create task and assign to team, create team - Done
-sending mail to team lead after assign to a team - Done
-team leader assign to team members - Done
-team members can update status - Done
+users create task and assign to team, create team - Done <br>
+sending mail to team lead after assign to a team - Done <br>
+team leader assign to team members - Done <br>
+team members can update status - Done<br>
