@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+    {% block title %}Users| Main{% endblock %}
+    {% block content %}
+    {% if msg %}
+        {{msg}}
+    {% endif %}
+    <br>
+    <br>
+    <button id = "team" class="button"><span>Create Team </span></button> <br>
+    <button id = "task" class="button"><span>Create Task </span></button>
+
+    <script type="text/javascript">
+        const team = document.getElementById("team")
+        const task = document.getElementById("task")
+
+        team.addEventListener("click", () => {
+            window.location.replace('http://127.0.0.1:8000/users/createteam/')
+        })
+
+        task.addEventListener("click", () => {
+            window.location.replace('http://127.0.0.1:8000/users/createtask/')
+        })
+    </script>
+{% endblock %}

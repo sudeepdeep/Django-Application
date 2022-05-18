@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+    {% block title %}Users| Task to Lead{% endblock %}
+    {% block content %}
+    <form action = "", method = "POST">
+        {% csrf_token %}
+
+        {% if msg %}{{msg}}{% endif %}
+        {% for i,j in teams.items %}
+                {% if i == 'teamname'%}
+                <h4>Team Name: {{j}}</h4>
+                {% endif %}
+                {% if i == 'teamlead'%}<h5>Team Lead: {{j}}</h5>{% endif %}
+                {% if i == 'taskname'%}<h5>Task Name: {{j}}</h5>{% endif %}
+                {% if i == 'description'%}<p>Task Description: {{j}}</p>{% endif %}
+
+                
+                {% if i == 'members' %}
+                <label  style="margin-right: 10px;">Set Status</label>
+                <select name = "status">
+                    <option value = "Assigned">Assigned</option>
+                    <option value = "On Progess">On Progess</option>
+                    <option value = "Under Review">Under Review</option>
+                    <option value = "Done">Done</option>
+                </select><br><br>
+                <label  style="margin-right: 10px;">Assign team</label>
+
+                        {% for mem in j %}
+                            <input type = 'checkbox' name = "{{mem}}" value="{{mem}}">{{mem}}
+                        {% endfor %}
+
+                {% endif %}
+        {% endfor %}
+
+        <br>
+        <br>
+        <button type = "submit" class = "button"><span>Assign</span></button>
+        
+    </form>
+   
+{% endblock %}

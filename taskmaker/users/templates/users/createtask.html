@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+    {% block title %}Users| Creata Tasks{% endblock %}
+    {% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>Task Name</label>
+        <input type = "text" name = "taskname" placeholder = "enter task name"/> <br><br>
+        <label>Select Team</label>
+        <select name = "teamname">
+            
+            {% for i in teams %}
+                <option value = {{i}}>{{i}}</option>
+            {% endfor %}
+        </select> <br><br>
+        <label>Description</label>
+        <textarea name = "desc" placeholder = "Enter description"></textarea><br><br>
+
+        <button type = "submit" class = "button"><span>Create Task</span></button>
+    </form>
+{% endblock %}

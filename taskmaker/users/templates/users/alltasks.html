@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+    {% block title %}Users| All Tasks{% endblock %}
+    {% block content %}
+    {% csrf_token %}
+    {% for i in tasks %}
+        <h2>Task: {{i.task}}</h2>
+        <p>Task Description: {{i.taskdesc}}</p>
+        <p>Team Member: {{i.name}}</p>
+        <p>Status: {{i.status}}</p>  
+        <p>Start Date: {{i.started}}</p>
+        <p>End Date: {{i.completed}}</p>
+        <p>-----------------------------------------------------</p>
+    {% endfor %}
+    {% endblock %}

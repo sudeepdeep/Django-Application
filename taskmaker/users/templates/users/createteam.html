@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+    {% block title %}Users| Create Team{% endblock %}
+    {% block content %}
+
+    <form action = "", method = "POST">
+        {% csrf_token %}
+        {{form.as_p}} 
+        <label style = "margin-right: 10px;">Select Team Leader</label>
+        <select name="tl">
+        {% for i in tl %}
+            {% if i.role == 'Team Lead'%}
+                
+                    <option value = {{i.name}}>{{i.name}}</option>
+                
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br>
+    <br>
+
+    <label style = "margin-right: 10px;">Select Team Members</label>
+        {% for i in tl %}
+            {% if i.role == 'Team Member'%}
+                
+                    <input type = 'checkbox' name={{i.name}}  value = {{i.name}}>{{i.name}}
+                
+            {% endif %}
+        {% endfor %}
+
+    <br>
+    <br>
+    <br>
+    <button type = "submit" class = "button"><span>Create Team</span></button>
+
+   
+    </form>
+   
+{% endblock %}

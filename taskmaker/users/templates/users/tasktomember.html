@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+    {% block title %}Users| Main{% endblock %}
+    {% block content %}
+    {% csrf_token %}
+    {% for i in tasks %}
+        {% if i.name == username %}
+            <h4><label style="margin-right: 10px;">Task: </label> {{i.task}}</h4>
+            <h5><label style="margin-right: 10px;">Description: </label> {{i.taskdesc}}</h5>
+            <label style="margin-right: 10px;">Status:</label> {{i.status}} <br><br>
+
+            
+    <button type="button" class = "btns button" value = "{{i.task}}"><span>Update Status</span></button>
+        {% endif %}
+    {% endfor %}
+
+
+    <script type="text/javascript">
+        const update = document.querySelectorAll(".btns");
+        update.forEach(btn => {
+            btn.addEventListener("click", () => {
+                val = btn.value;
+            window.location.replace('http://127.0.0.1:8000/users/update/'+val)
+        })
+        })
+        
+    </script>
+{% endblock %}

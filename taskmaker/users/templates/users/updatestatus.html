@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+    {% block title %}Users| Main{% endblock %}
+    {% block content %}
+    <form action = "" method = "POST">
+        {% csrf_token %}
+        <label style = "margin-right: 10px;">Set Status</label>
+        <select name = "status">
+            <option value = "Assigned">Assigned</option>
+            <option value = "On Progess">On Progess</option>
+            <option value = "Under Review">Under Review</option>
+            <option value = "Done">Done</option>
+        </select><br><br>
+        <button type = "submit" class = "button"><span>Update</span></button>
+    </form>
+{% endblock %}
